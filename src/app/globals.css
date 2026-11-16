@@ -24,3 +24,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes mw-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.mw-marquee-track {
+  animation: mw-marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.mw-marquee:hover .mw-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mw-marquee-track {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
